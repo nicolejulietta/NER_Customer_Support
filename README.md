@@ -1,2 +1,9 @@
-# NER_Customer_Support
-NER project for customer support data.
+Environment Setup: Installed spacy, pandas, PyPDF2, and loaded en_core_web_sm.
+Entity Selection: Chose 30 entities (15 from Customer Support & 15 from Customer Service).
+Training Data: Created sample sentences covering all 30 entity types.
+ER Model Setup: Initialized a blank spacy model, added NER pipeline, and assigned labels.
+NEXT STEPS:
+Train the NER model using TRAIN_DATA.
+save and test the trained model.
+Implement user input for real time entity recognition
+organize and zip the files for submission
