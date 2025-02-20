@@ -7,3 +7,9 @@ Train the NER model using TRAIN_DATA.
 save and test the trained model.
 Implement user input for real time entity recognition
 organize and zip the files for submission
+
+\*\*ShanieWIP:
+Environment Setup: flask
+What was done:
+-Set up flask for web based UI
+-Set up UI with text box, entity checkboxes, text process button, and container for processed text
