@@ -1,21 +1,25 @@
 body {
+  box-sizing: border-box;
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   text-align: center;
   padding: 20px;
+  background-color: #0056b3;
 }
 
 .container {
-  max-width: 600px;
+  width: 60%;
+  height: 70vh;
   background: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: auto;
+  margin-top: 5rem;
 }
 
 textarea {
-  width: 100%;
+  width: 90%;
   height: 100px;
   padding: 10px;
   border: 1px solid #ccc;
