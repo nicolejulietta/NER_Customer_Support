@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NER Project</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Named Entity Recognition</h1>
+      <textarea
+        id="input-text"
+        placeholder="Paste your text here..."
+      ></textarea>
+      <div id="checkboxes">
+        <label
+          ><input type="checkbox" name="entity" value="customer_name" />
+          Customer Name</label
+        >
+        <label
+          ><input type="checkbox" name="entity" value="product_name" /> Product
+          Name</label
+        >
+        <label
+          ><input type="checkbox" name="entity" value="order_number" /> Order
+          Number</label
+        >
+        <!-- Add more checkboxes here -->
+      </div>
+      <button id="process-btn">Process Text</button>
+      <div id="output-text"></div>
+    </div>
+  </body>
+</html>
