@@ -28,7 +28,7 @@ textarea {
 
 #checkboxes {
   margin: 10px 0;
-  text-align: left;
+  text-align: center;
 }
 
 button {
@@ -45,7 +45,8 @@ button:hover {
 }
 
 #output-text {
-  margin-top: 20px;
+  margin: 2.5rem;
+  height: 50%;
   padding: 10px;
   background: #e8e8e8;
   min-height: 50px;
