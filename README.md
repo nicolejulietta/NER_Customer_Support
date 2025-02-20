@@ -13,3 +13,4 @@ Environment Setup: flask
 What was done:
 -Set up flask for web based UI
 -Set up UI with text box, entity checkboxes, text process button, and container for processed text
+(Entities need to be updated to be unique based on instructions. There are some that are duplicate.)
