@@ -3,7 +3,7 @@ import spacy
 
 app = Flask(__name__)
 
-nlp = spacy.load("trained_ner_model")
+# nlp = spacy.load("trained_ner_model")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
