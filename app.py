@@ -1,19 +1,16 @@
 from flask import Flask, render_template, request
-import spacy
 
 app = Flask(__name__)
 
-# nlp = spacy.load("trained_ner_model")
-
 @app.route("/", methods=["GET", "POST"])
 def index():
-    entities = []
+    processed_text = ""
     if request.method == "POST":
         text = request.form.get("text_input")
         if text:
-            doc = nlp(text)
-            entities = [(ent.text, ent.label_) for ent in doc.ents]
-    return render_template("index.html", entities=entities)
+            # For now, we just pass the input text back
+            processed_text = text
+    return render_template("index.html", processed_text=processed_text)
 
 if __name__ == "__main__":
     app.run(debug=True)
