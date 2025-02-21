@@ -55,3 +55,8 @@ button:hover {
   min-height: 50px;
   border-radius: 5px;
 }
+
+.highlight {
+  padding: 0 5px;
+  border-radius: 3px;
+}

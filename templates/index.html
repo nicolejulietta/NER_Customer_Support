@@ -160,9 +160,50 @@
       </form>
       <div id="output-text">
         {% if processed_text %}
-        <p>{{ processed_text }}</p>
+        <p><strong>Processed Text:</strong></p>
+        <p id="highlighted-text">{{ processed_text }}</p>
         {% endif %}
       </div>
     </div>
+    <script>
+      const checkboxElements = document.querySelectorAll(
+        'input[type="checkbox"]'
+      );
+      const highlightedTextElement =
+        document.getElementById("highlighted-text");
+
+      const colors = {
+        customer_names: "#ffcccb",
+        support_agents: "#ccffcc",
+        order_numbers: "#ffeb3b",
+      };
+
+      function highlightText(entities) {
+        let text = highlightedTextElement.innerHTML;
+
+        entities.forEach((entity) => {
+          if (document.querySelector(`input[value="${entity}"]`).checked) {
+            const regex = new RegExp(`\\b${entity}\\b`, "g");
+            const color = colors[entity] || "#ffff00";
+            text = text.replace(
+              regex,
+              `<span class="highlight" style="background-color:${color}">${entity}</span>`
+            );
+          }
+        });
+
+        highlightedTextElement.innerHTML = text;
+      }
+
+      checkboxElements.forEach((checkbox) => {
+        checkbox.addEventListener("change", function () {
+          const entities = Array.from(checkboxElements)
+            .filter((checkbox) => checkbox.checked)
+            .map((checkbox) => checkbox.value);
+
+          highlightText(entities);
+        });
+      });
+    </script>
   </body>
 </html>
