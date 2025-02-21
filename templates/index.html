@@ -2,12 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>NER Project</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='styles.css') }}"
-    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
   </head>
   <body>
     <div class="container">
@@ -19,222 +16,134 @@
           placeholder="Paste your text here..."
           rows="10"
           cols="50"
-        ></textarea>
+        >{{ processed_text }}</textarea>
         <div id="checkboxes">
           <p><strong>Customer Support</strong></p>
-          <label
-            ><input type="checkbox" name="entity" value="customer_names_sp" />
-            Customer Names</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="support_agents_sp" />
-            Support Agents</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="order_numbers_sp" />
-            Order Numbers</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="product_names_sp" />
-            Product Names</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="complaint_types_sp" />
-            Complaint Types</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="time_date_sp" />
-            Time/Date</label
-          >
-          <label
-            ><input
-              type="checkbox"
-              name="entity"
-              value="issue_description_sp"
-            />
-            Issue Description</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="refund_request_sp" />
-            Refund Request</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="shipping_info_sp" />
-            Shipping Info</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="discount_promos_sp" />
-            Discounts/Promotions</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="service_req_sp" />
-            Service Requests</label
-          >
-          <label
-            ><input
-              type="checkbox"
-              name="entity"
-              value="customer_feedback_sp"
-            />
-            Customer Feedback</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="escalation_req_sp" />
-            Escalation Request</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="product_models_sp" />
-            Product Models</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="ticket_numbers_sp" />
-            Ticket Numbers</label
-          >
+          <label><input type="checkbox" name="entity" value="customer_names_sp" {% if 'customer_names_sp' in selected_categories %}checked{% endif %}/> Customer Names</label>
+          <label><input type="checkbox" name="entity" value="support_agents_sp" {% if 'support_agents_sp' in selected_categories %}checked{% endif %}/> Support Agents</label>
+          <label><input type="checkbox" name="entity" value="order_numbers_sp" {% if 'order_numbers_sp' in selected_categories %}checked{% endif %}/> Order Numbers</label>
+          <label><input type="checkbox" name="entity" value="product_names_sp" {% if 'product_names_sp' in selected_categories %}checked{% endif %}/> Product Names</label>
+          <label><input type="checkbox" name="entity" value="complaint_types_sp" {% if 'complaint_types_sp' in selected_categories %}checked{% endif %}/> Complaint Types</label>
+          <label><input type="checkbox" name="entity" value="time_date_sp" {% if 'time_date_sp' in selected_categories %}checked{% endif %}/> Time/Date</label>
+          <label><input type="checkbox" name="entity" value="issue_description_sp" {% if 'issue_description_sp' in selected_categories %}checked{% endif %}/> Issue Description</label>
+          <label><input type="checkbox" name="entity" value="refund_request_sp" {% if 'refund_request_sp' in selected_categories %}checked{% endif %}/> Refund Request</label>
+          <label><input type="checkbox" name="entity" value="shipping_info_sp" {% if 'shipping_info_sp' in selected_categories %}checked{% endif %}/> Shipping Info</label>
+          <label><input type="checkbox" name="entity" value="discount_promos_sp" {% if 'discount_promos_sp' in selected_categories %}checked{% endif %}/> Discounts/Promotions</label>
+          <label><input type="checkbox" name="entity" value="service_req_sp" {% if 'service_req_sp' in selected_categories %}checked{% endif %}/> Service Requests</label>
+          <label><input type="checkbox" name="entity" value="customer_feedback_sp" {% if 'customer_feedback_sp' in selected_categories %}checked{% endif %}/> Customer Feedback</label>
+          <label><input type="checkbox" name="entity" value="escalation_req_sp" {% if 'escalation_req_sp' in selected_categories %}checked{% endif %}/> Escalation Request</label>
+          <label><input type="checkbox" name="entity" value="product_models_sp" {% if 'product_models_sp' in selected_categories %}checked{% endif %}/> Product Models</label>
+          <label><input type="checkbox" name="entity" value="ticket_numbers_sp" {% if 'ticket_numbers_sp' in selected_categories %}checked{% endif %}/> Ticket Numbers</label>
           <p><strong>Customer Service</strong></p>
-          <label
-            ><input type="checkbox" name="entity" value="customer_names_sv" />
-            Customer Names</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="support_reps_sv" />
-            Support Reps</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="order_numbers_sv" />
-            Order Numbers</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="escalation_req_sv" />
-            Escalation Requests</label
-          >
-          <label
-            ><input
-              type="checkbox"
-              name="entity"
-              value="company_names_sv
-"
-            />
-            Company Names
-          </label>
-          <label
-            ><input type="checkbox" name="entity" value="product_names_sv" />
-            Product Names</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="sla_sv" /> SLA</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="customer_queries_sv" />
-            Customer Queries</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="service_types_sv" />
-            Service Types</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="payment_issues_sv" />
-            Payment Issues</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="refund_request_sv" />
-            Refund Requests</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="feedback_sv" />
-            Feedback</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="discount_code_sv" />
-            Discount Codes</label
-          >
-          <label
-            ><input type="checkbox" name="entity" value="shipping_info_sv" />
-            Shipping Info</label
-          >
-          <label
-            ><input
-              type="checkbox"
-              name="entity"
-              value="cust_satisfaction_rating_sv"
-            />
-            Satisfaction Ratings</label
-          >
+          <label><input type="checkbox" name="entity" value="customer_names_sv" {% if 'customer_names_sv' in selected_categories %}checked{% endif %}/> Customer Names</label>
+          <label><input type="checkbox" name="entity" value="support_reps_sv" {% if 'support_reps_sv' in selected_categories %}checked{% endif %}/> Support Reps</label>
+          <label><input type="checkbox" name="entity" value="order_numbers_sv" {% if 'order_numbers_sv' in selected_categories %}checked{% endif %}/> Order Numbers</label>
+          <label><input type="checkbox" name="entity" value="escalation_req_sv" {% if 'escalation_req_sv' in selected_categories %}checked{% endif %}/> Escalation Requests</label>
+          <label><input type="checkbox" name="entity" value="company_names_sv" {% if 'company_names_sv' in selected_categories %}checked{% endif %}/> Company Names</label>
+          <label><input type="checkbox" name="entity" value="product_names_sv" {% if 'product_names_sv' in selected_categories %}checked{% endif %}/> Product Names</label>
+          <label><input type="checkbox" name="entity" value="sla_sv" {% if 'sla_sv' in selected_categories %}checked{% endif %}/> SLA</label>
+          <label><input type="checkbox" name="entity" value="customer_queries_sv" {% if 'customer_queries_sv' in selected_categories %}checked{% endif %}/> Customer Queries</label>
+          <label><input type="checkbox" name="entity" value="service_types_sv" {% if 'service_types_sv' in selected_categories %}checked{% endif %}/> Service Types</label>
+          <label><input type="checkbox" name="entity" value="payment_issues_sv" {% if 'payment_issues_sv' in selected_categories %}checked{% endif %}/> Payment Issues</label>
+          <label><input type="checkbox" name="entity" value="refund_request_sv" {% if 'refund_request_sv' in selected_categories %}checked{% endif %}/> Refund Requests</label>
+          <label><input type="checkbox" name="entity" value="feedback_sv" {% if 'feedback_sv' in selected_categories %}checked{% endif %}/> Feedback</label>
+          <label><input type="checkbox" name="entity" value="discount_code_sv" {% if 'discount_code_sv' in selected_categories %}checked{% endif %}/> Discount Codes</label>
+          <label><input type="checkbox" name="entity" value="shipping_info_sv" {% if 'shipping_info_sv' in selected_categories %}checked{% endif %}/> Shipping Info</label>
+          <label><input type="checkbox" name="entity" value="cust_satisfaction_rating_sv" {% if 'cust_satisfaction_rating_sv' in selected_categories %}checked{% endif %}/> Satisfaction Ratings</label>
         </div>
         <button type="submit" id="process-btn">Process Text</button>
       </form>
+
       <div id="output-text">
         {% if processed_text %}
-        <p id="highlighted-text">{{ processed_text }}</p>
+          <h2>Processed Text:</h2>
+          <p id="highlighted-text">{{ processed_text }}</p>
+        {% endif %}
+        {% if entities %}
+          <h3>Recognized Entities:</h3>
+          <ul>
+            {% for ent_text, ent_label in entities %}
+              <li><strong>{{ ent_label }}:</strong> {{ ent_text }}</li>
+            {% endfor %}
+          </ul>
         {% endif %}
       </div>
     </div>
+
     <script>
-      const checkboxElements = document.querySelectorAll(
-        'input[type="checkbox"]'
-      );
-      const highlightedTextElement =
-        document.getElementById("highlighted-text");
+      // When the page loads, use the recognized entities from Flask to highlight text.
+      window.onload = function() {
+        const checkboxElements = document.querySelectorAll('input[type="checkbox"]');
+        const highlightedTextElement = document.getElementById("highlighted-text");
+        // recognizedEntities is passed from Flask as an array of [text, label]
+        const recognizedEntities = {{ entities | tojson }};
+        
+        // Define a color mapping for each entity label
+        const colors = {
+          "customer_names_sp": "#ffcccb",
+          "support_agents_sp": "#ccffcc",
+          "order_numbers_sp": "#ffeb3b",
+          "product_names_sp": "#FFB3BA",
+          "complaint_types_sp": "#FFDFBA",
+          "time_date_sp": "#FFFABA",
+          "issue_description_sp": "#D4FFBA",
+          "refund_request_sp": "#BAFFCE",
+          "shipping_info_sp": "#BAFFFB",
+          "discount_promos_sp": "#BAE1FF",
+          "service_req_sp": "#C0BAFF",
+          "customer_feedback_sp": "#FFB3FF",
+          "escalation_req_sp": "#FFBAE5",
+          "product_models_sp": "#FF9D9D",
+          "ticket_numbers_sp": "#FFB9C3",
+          "customer_names_sv": "#F6C1D2",
+          "support_reps_sv": "#F3B0D0",
+          "order_numbers_sv": "#C6F6F1",
+          "escalation_req_sv": "#C4E1FF",
+          "company_names_sv": "#F0E68C",
+          "product_names_sv": "#F1E7A8",
+          "sla_sv": "#FFD700",
+          "customer_queries_sv": "#B3E5FC",
+          "service_types_sv": "#FFDEAD",
+          "payment_issues_sv": "#D0E1F9",
+          "refund_request_sv": "#FFE4E1",
+          "feedback_sv": "#FAFAD2",
+          "discount_code_sv": "#FFFACD",
+          "shipping_info_sv": "#F0FFF0",
+          "cust_satisfaction_rating_sv": "#F5FFFA"
+        };
 
-      const colors = {
-        customer_names_sp: "#ffcccb",
-        support_agents_sp: "#ccffcc",
-        order_numbers_sp: "#ffeb3b",
-        product_names_sp: "#FFB3BA",
-        complaint_types_sp: "#FFDFBA",
-        time_date_sp: "#FFFABA",
-        issue_description_sp: "#D4FFBA",
-        refund_request_sp: "#BAFFCE",
-        shipping_info_sp: "#BAFFFB",
-        discount_promos_sp: "#BAE1FF",
-        service_req_sp: "#C0BAFF",
-        customer_feedback_sp: "#FFB3FF",
-        escalation_req_sp: "#FFBAE5",
-        product_models_sp: "#FF9D9D",
-        ticket_numbers_sp: "#FFB9C3",
+        function highlight() {
+          // Get the original text from the textarea (user input)
+          let originalText = document.getElementById("input-text").value;
+          let text = originalText;
 
-        customer_names_sv: "#F6C1D2",
-        support_reps_sv: "#F3B0D0",
-        order_numbers_sv: "#C6F6F1",
-        escalation_req_sv: "#C4E1FF",
-        company_names_sv: "#F0E68C",
-        product_names_sv: "#F1E7A8",
-        sla_sv: "#FFD700",
-        customer_queries_sv: "#B3E5FC",
-        service_types_sv: "#FFDEAD",
-        payment_issues_sv: "#D0E1F9",
-        refund_request_sv: "#FFE4E1",
-        feedback_sv: "#FAFAD2",
-        discount_code_sv: "#FFFACD",
-        shipping_info_sv: "#F0FFF0",
-        cust_satisfaction_rating_sv: "#F5FFFA",
+          // Get selected categories from checkboxes
+          const selectedCategories = Array.from(checkboxElements)
+            .filter(chk => chk.checked)
+            .map(chk => chk.value);
+
+          // If no categories selected, highlight all recognized entities
+          const categoriesToHighlight = selectedCategories.length ? selectedCategories : recognizedEntities.map(item => item[1]);
+
+          // For each recognized entity, if its label is in the selected categories, wrap it in a span with the defined color
+          recognizedEntities.forEach(entity => {
+            const entText = entity[0];
+            const entLabel = entity[1];
+            if (categoriesToHighlight.includes(entLabel)) {
+              const color = colors[entLabel] || "#ffff00";
+              const regex = new RegExp("\\b" + entText + "\\b", "g");
+              text = text.replace(regex, `<span class="highlight" style="background-color:${color}">${entText}</span>`);
+            }
+          });
+          highlightedTextElement.innerHTML = text;
+        }
+
+        // Highlight on page load and update when checkboxes change
+        highlight();
+        checkboxElements.forEach(chk => {
+          chk.addEventListener("change", highlight);
+        });
       };
-
-      function highlightText(entities) {
-        let text = highlightedTextElement.innerHTML;
-
-        entities.forEach((entity) => {
-          if (document.querySelector(`input[value="${entity}"]`).checked) {
-            const regex = new RegExp(`\\b${entity}\\b`, "g");
-            const color = colors[entity] || "#ffff00";
-            text = text.replace(
-              regex,
-              `<span class="highlight" style="background-color:${color}">${entity}</span>`
-            );
-          }
-        });
-
-        highlightedTextElement.innerHTML = text;
-      }
-
-      checkboxElements.forEach((checkbox) => {
-        checkbox.addEventListener("change", function () {
-          const entities = Array.from(checkboxElements)
-            .filter((checkbox) => checkbox.checked)
-            .map((checkbox) => checkbox.value);
-
-          highlightText(entities);
-        });
-      });
     </script>
   </body>
 </html>
