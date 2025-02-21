@@ -8,7 +8,6 @@ def index():
     if request.method == "POST":
         text = request.form.get("text_input")
         if text:
-            # For now, we just pass the input text back
             processed_text = text
     return render_template("index.html", processed_text=processed_text)
 
